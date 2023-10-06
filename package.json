@@ -1,0 +1,65 @@
+{
+  "name": "fe-gatsby-template",
+  "version": "0.1.0",
+  "repository": "git@github.com:veeso/fe-gatsby-template.git",
+  "author": "Christian Visintin <christian.visintin@veeso.dev>",
+  "license": "MIT",
+  "browserslist": {
+    "production": [
+      "> 5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "> 5%",
+      "not dead",
+      "not op_mini all"
+    ]
+  },
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve --port 9000",
+    "clean": "gatsby clean",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint . --ext .ts --ext .tsx --max-warnings=0",
+    "prettier": "prettier --config .prettierrc --write src/",
+    "prettier:check": "prettier --config .prettierrc --check src/"
+  },
+  "dependencies": {
+    "flat": "^5.0",
+    "gatsby": "^5.12",
+    "gatsby-source-filesystem": "^5.12.0",
+    "js-cookie": "^3.0",
+    "react": "^18.2",
+    "react-dom": "^18.2",
+    "react-feather": "^2.0",
+    "react-intl": "^6.4"
+  },
+  "devDependencies": {
+    "@types/flat": "^5.0.2",
+    "@types/gtag.js": "^0.0.13",
+    "@types/js-cookie": "^3.0.3",
+    "@types/react": "^18.2",
+    "@types/react-dom": "^18.2",
+    "@types/react-helmet": "^6.1.6",
+    "@types/react-lazyload": "^3.2.0",
+    "@typescript-eslint/eslint-plugin": "^6.3",
+    "@typescript-eslint/parser": "^6.3",
+    "eslint": "^8.47",
+    "eslint-config-prettier": "^9.0",
+    "gatsby-plugin-google-gtag": "^5.12",
+    "gatsby-plugin-image": "^3.12.0",
+    "gatsby-plugin-manifest": "^5.12",
+    "gatsby-plugin-postcss": "^6.12",
+    "gatsby-plugin-sharp": "^5.12.0",
+    "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.31",
+    "gatsby-transformer-sharp": "^5.12.0",
+    "postcss": "^8.4",
+    "prettier": "^3",
+    "process": "^0.11.10",
+    "tailwindcss": "^3.3",
+    "typescript": "^5.2"
+  }
+}
