@@ -1,4 +1,4 @@
-@import './css/animate.min.css';
+@import '@/src/css/animate.min.css';
 
 @tailwind base;
 @tailwind components;

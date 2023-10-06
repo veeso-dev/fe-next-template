@@ -1,6 +1,8 @@
+'use client';
+
 import * as React from 'react';
-import { FormattedMessage } from 'react-intl';
-import { navigate, Link } from 'gatsby';
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 import {
   hasCookiePreferences,
@@ -16,6 +18,7 @@ import Cta, { Alternative } from './reusable/Cta';
 import RichTextFormattedMessage from './reusable/RichTextFormattedMessage';
 
 const CookieBar = () => {
+  const router = useRouter();
   const [hasCookieBar, setHasCookieBar] = React.useState(false);
 
   const onAcceptAll = () => {
@@ -29,7 +32,7 @@ const CookieBar = () => {
   };
 
   const onGoToPolicy = () => {
-    navigate(Route.url(Route.COOKIE_POLICY));
+    router.push(Route.url(Route.COOKIE_POLICY));
   };
 
   // init GA consent
@@ -50,13 +53,13 @@ const CookieBar = () => {
         <Container.FlexResponsiveRow className="justify-between sm:h-full">
           <Container.Container className="sm:w-full sm:overflow-y-auto">
             <Heading.H2 className="sm:py-0">
-              <FormattedMessage id="cookies.bar.title" />
+              <RichTextFormattedMessage id="cookies.bar.title" />
             </Heading.H2>
             <Paragraph.Leading className="sm:text-sm">
               <RichTextFormattedMessage id="cookies.bar.body" />{' '}
               <Link
                 className="hover:underline font-bold block"
-                to={Route.url(Route.COOKIE_POLICY)}
+                href={Route.url(Route.COOKIE_POLICY)}
               >
                 <RichTextFormattedMessage id="cookies.bar.clickHereToPolicy" />.
               </Link>
@@ -64,13 +67,13 @@ const CookieBar = () => {
           </Container.Container>
           <Container.Flex className="flex-col sm:flex-row justify-around gap-4 sm:my-2">
             <Cta onClick={onAcceptAll} className="sm:text-sm sm:px-4 sm:py-2">
-              <FormattedMessage id="cookies.bar.acceptAll" />
+              <RichTextFormattedMessage id="cookies.bar.acceptAll" />
             </Cta>
             <Alternative
               onClick={onGoToPolicy}
               className="sm:text-sm sm:px-4 sm:py-2"
             >
-              <FormattedMessage id="cookies.bar.customise" />
+              <RichTextFormattedMessage id="cookies.bar.customise" />
             </Alternative>
           </Container.Flex>
         </Container.FlexResponsiveRow>
