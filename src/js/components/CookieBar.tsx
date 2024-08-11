@@ -2,20 +2,14 @@
 
 import * as React from 'react';
 import { useRouter } from 'next/navigation';
-import Link from 'next/link';
 
-import {
-  hasCookiePreferences,
-  isAnalyticsCookiesConsentGiven,
-  acceptAllCookies,
-} from '../utils/cookies';
-import { setGaConsent, initGaConsent } from '../utils/analytics';
+import { hasCookiePreferences, acceptAllCookies } from '../utils/cookies';
 import { Route } from '../utils/routes';
 import Container from './reusable/Container';
 import Heading from './reusable/Heading';
 import Paragraph from './reusable/Paragraph';
-import Cta, { Alternative } from './reusable/Cta';
-import RichTextFormattedMessage from './reusable/RichTextFormattedMessage';
+import Link from './reusable/Link';
+import Button from './reusable/Button';
 
 const CookieBar = () => {
   const router = useRouter();
@@ -24,7 +18,7 @@ const CookieBar = () => {
   const onAcceptAll = () => {
     acceptAllCookies();
     onCookieBarClose();
-    setGaConsent(false, true);
+    // TODO: init ga consent etc
   };
 
   const onCookieBarClose = () => {
@@ -37,7 +31,7 @@ const CookieBar = () => {
 
   // init GA consent
   React.useEffect(() => {
-    initGaConsent(false, isAnalyticsCookiesConsentGiven());
+    // TODO: init ga consent etc
     setTimeout(() => {
       setHasCookieBar(!hasCookiePreferences());
     }, 1000);
@@ -47,36 +41,39 @@ const CookieBar = () => {
     <Container.Container
       className={`${
         hasCookieBar ? 'animate__animated animate__slideInUp' : 'hidden'
-      } fixed z-50 right-0 left-0 w-full bottom-4`}
+      } fixed z-50 right-0 left-0 w-full bottom-4 max-w-[640px] sm:max-w-[768px]`}
     >
       <Container.Container className="bg-white shadow-2xl rounded border m-8 p-10 sm:h-2/6 sm:mx-8 sm:m-2 sm:p-4">
-        <Container.FlexResponsiveRow className="justify-between sm:h-full">
+        <Container.FlexCols className="justify-between sm:h-full">
           <Container.Container className="sm:w-full sm:overflow-y-auto">
-            <Heading.H2 className="sm:py-0">
-              <RichTextFormattedMessage id="cookies.bar.title" />
-            </Heading.H2>
+            <Heading.H2 className="sm:py-0">Cookie Policy</Heading.H2>
             <Paragraph.Leading className="sm:text-sm">
-              <RichTextFormattedMessage id="cookies.bar.body" />{' '}
-              <Link
-                className="hover:underline font-bold block"
-                href={Route.url(Route.COOKIE_POLICY)}
-              >
-                <RichTextFormattedMessage id="cookies.bar.clickHereToPolicy" />.
-              </Link>
+              Questo sito utilizza cookie per migliorare l&apos;esperienza di
+              navigazione degli utenti e per raccogliere informazioni
+              sull&apos;utilizzo del sito stesso. Utilizziamo sia cookie tecnici
+              sia cookie di parti terze per inviare messaggi promozionali sulla
+              base dei comportamenti degli utenti. Può conoscere i dettagli
+              consultando la nostra{' '}
+              <Link.Paragraph href={Route.url(Route.COOKIE_POLICY)}>
+                Cookie Policy.
+              </Link.Paragraph>
             </Paragraph.Leading>
           </Container.Container>
-          <Container.Flex className="flex-col sm:flex-row justify-around gap-4 sm:my-2">
-            <Cta onClick={onAcceptAll} className="sm:text-sm sm:px-4 sm:py-2">
-              <RichTextFormattedMessage id="cookies.bar.acceptAll" />
-            </Cta>
-            <Alternative
+          <Container.FlexRow className="justify-start gap-4 sm:my-2">
+            <Button.Primary
+              onClick={onAcceptAll}
+              className="sm:text-sm sm:px-4 sm:py-2"
+            >
+              Accetta tutti i cookie
+            </Button.Primary>
+            <Button.Alternative
               onClick={onGoToPolicy}
               className="sm:text-sm sm:px-4 sm:py-2"
             >
-              <RichTextFormattedMessage id="cookies.bar.customise" />
-            </Alternative>
-          </Container.Flex>
-        </Container.FlexResponsiveRow>
+              Personalizza
+            </Button.Alternative>
+          </Container.FlexRow>
+        </Container.FlexCols>
       </Container.Container>
     </Container.Container>
   );

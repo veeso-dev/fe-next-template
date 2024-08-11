@@ -1,3 +1,0 @@
-[submodule "src/js/components/reusable"]
-	path = src/js/components/reusable
-	url = git@github.com:veeso-dev/reusable.git

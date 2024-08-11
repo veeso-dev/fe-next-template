@@ -1,38 +1,36 @@
-import { isAnalyticsCookiesConsentGiven } from './cookies';
+/*
+const pushEvent = (event: string, params: any) => {
+  pushDataLayer({
+    event,
+    ...params,
+  });
+  pushUmamiEvent(event, params);
+};
 
-const pushAnalyticsEvent = (eventName: string, parameters: any) => {
+const pushUmamiEvent = (event: string, params: any) => {
   if (typeof window === 'undefined') {
     return;
   }
 
-  const canUseGa4 =
-    window.gtag !== undefined && isAnalyticsCookiesConsentGiven();
+  const canUseUmami = window.umami !== undefined;
 
-  if (canUseGa4) {
-    window.gtag('event', eventName, parameters);
+  if (canUseUmami) {
+    try {
+      console.log(window.umami);
+      window.umami.track(event, params);
+    } catch (e) {
+      console.error(`failed to track ${event}: ${e}`);
+    }
   }
 };
 
-const consent = (flag: boolean): 'granted' | 'denied' =>
-  flag ? 'granted' : 'denied';
-
-export const initGaConsent = (
-  adStorage: boolean,
-  analyticsStorage: boolean,
-) => {
-  if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag('consent', 'default', {
-      ad_storage: consent(adStorage),
-      analytics_storage: consent(analyticsStorage),
-    });
+const pushDataLayer = (data: any) => {
+  if (
+    typeof window !== 'undefined' &&
+    typeof window.dataLayer !== 'undefined'
+  ) {
+    window.dataLayer.push(data);
+    console.log('pushed to dataLayer', window.dataLayer);
   }
 };
-
-export const setGaConsent = (adStorage: boolean, analyticsStorage: boolean) => {
-  if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag('consent', 'update', {
-      ad_storage: consent(adStorage),
-      analytics_storage: consent(analyticsStorage),
-    });
-  }
-};
+*/

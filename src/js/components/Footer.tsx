@@ -10,7 +10,7 @@ const Footer = () => {
     <footer>
       <Container.Container className="bg-brand text-white m-0 p-8">
         <div className="bg-white content-none h-[1px] mx-auto w-8/12"></div>
-        {/* TODO: footer content */}
+        {/* footer content */}
         <Heading.H3 className="text-white text-center text-sm font-normal">
           P.IVA {CONTACTS.vat}
         </Heading.H3>

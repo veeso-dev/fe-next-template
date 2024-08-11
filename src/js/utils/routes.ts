@@ -1,5 +1,3 @@
-import { getNavigatorLanguage } from './locale';
-
 export enum Route {
   CONTACTS = 'contacts',
   COOKIE_POLICY = 'cookie-policy',
@@ -10,13 +8,11 @@ export enum Route {
 // eslint-disable-next-line @typescript-eslint/no-namespace
 export namespace Route {
   export function url(route: Route): string {
-    const lang = getNavigatorLanguage();
-
     if (route === Route.HOME) {
-      return `/${lang}`;
+      return `/`;
     }
 
-    return `/${lang}/${route}`;
+    return `/${route}`;
   }
 }
 

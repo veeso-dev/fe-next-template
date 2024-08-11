@@ -21,8 +21,8 @@ p {
 }
 
 strong {
-  color: #444;
-  font-weight: 400;
+  color: hsl(163, 76%, 21%);
+  font-weight: 700;
 }
 
 input {
@@ -31,6 +31,7 @@ input {
 
 textarea {
   font-family: 'Sora', sans-serif;
+  resize: none;
 }
 
 h1,
@@ -54,4 +55,120 @@ input {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
+}
+
+.cookies-table {
+  border: 1px solid #ccc;
+  color: #888;
+  margin: auto;
+  margin-top: 24px;
+  width: 80%;
+}
+
+@media screen and (max-width: 640px) {
+  .cookies-table {
+    max-width: 100%;
+    table-layout: fixed;
+    width: 100%;
+    word-wrap: break-word;
+  }
+}
+
+.cookies-table thead {
+  color: #444;
+  font-weight: 700;
+}
+
+.cookies-tabletr {
+  border: 1px solid #ccc;
+}
+
+.cookies-table tr:nth-child(even) {
+  background-color: #f8f8f8;
+}
+
+.cookies-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+
+.cookies-table td:nth-child(1) {
+  color: #444;
+  font-weight: 700;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rte-editor {
+  font-family: sans-serif;
+  min-height: 144px;
+}
+
+.rte-editor h1 {
+  color: hsl(163, 76%, 21%);
+  font-size: 1.875rem;
+}
+
+.rte-editor h2 {
+  color: hsl(163, 76%, 21%);
+  font-size: 1.5rem;
+}
+
+.rte-editor h3 {
+  color: hsl(163, 76%, 21%);
+  font-size: 1.25rem;
+}
+
+.rte-viewer {
+  background-color: hsl(54, 100%, 97%);
+  font-family: 'Sora', sans-serif;
+  color: rgb(107, 114, 128);
+}
+
+.rte-viewer h1 {
+  color: hsl(163, 76%, 21%);
+  font-size: 1.875rem;
+}
+
+.rte-viewer h2 {
+  color: hsl(163, 76%, 21%);
+  font-size: 1.5rem;
+}
+
+.rte-viewer h3 {
+  color: hsl(163, 76%, 21%);
+  font-size: 1.25rem;
+}
+
+.st-btn img {
+  display: inline !important;
+}
+
+.st-sticky-share-buttons {
+  z-index: 40 !important;
+}
+
+.tooltip-arrow {
+  position: absolute;
+  top: 50%;
+  left: -8px;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-right: 8px solid #4a5568; /* bg-gray-700 */
+}
+
+@media screen and (max-width: 640px) {
+  .tooltip-arrow {
+    left: 50%;
+    top: -15px;
+    transform: translateX(-50%);
+    border-bottom: 8px solid #4a5568; /* bg-gray-700 */
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+  }
 }

@@ -4,9 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev:development": "NODE_ENV=development next dev",
+    "build": "NODE_ENV=production next build",
+    "postbuild": "next-sitemap",
+    "start": "next start -p 3000",
+    "lint": "next lint",
+    "prettier": "prettier --config .prettierrc --write src/",
+    "prettier:check": "prettier --config .prettierrc --check src/"
   },
   "browserslist": {
     "production": [
@@ -21,26 +25,30 @@
     ]
   },
   "dependencies": {
-    "js-cookie": "^3.0",
+    "@next/third-parties": "^14.2.5",
+    "js-cookie": "^3",
     "next": "^14",
+    "next-sitemap": "^4.2.3",
     "react": "^18",
     "react-dom": "^18",
     "react-feather": "^2.0",
-    "react-loading-skeleton": "^3.4",
+    "react-loading-skeleton": "^3.4.0",
     "sharp": "^0.33.3"
   },
   "devDependencies": {
-    "@types/gtag.js": "^0.0.19",
+    "@types/gtag.js": "^0.0.20",
     "@types/js-cookie": "^3",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "@typescript-eslint/eslint-plugin": "^7.6.0",
-    "@typescript-eslint/parser": "^7.6.0",
+    "@types/umami-browser": "^2.3.2",
+    "@typescript-eslint/eslint-plugin": "^8",
+    "@typescript-eslint/parser": "^8",
     "autoprefixer": "^10",
     "eslint": "^8",
     "eslint-config-next": "^14",
     "eslint-config-prettier": "^9.1",
+    "eslint-plugin-promise": "^7.1.0",
     "postcss": "^8",
     "prettier": "^3",
     "tailwindcss": "^3",

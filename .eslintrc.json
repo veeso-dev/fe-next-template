@@ -11,7 +11,8 @@
     "ecmaVersion": 2020
   },
   "plugins": [
-    "@typescript-eslint"
+    "@typescript-eslint",
+    "promise"
   ],
   "extends": [
     "eslint:recommended",
@@ -21,6 +22,9 @@
   ],
   "rules": {
     "@typescript-eslint/no-namespace": "off",
-    "@typescript-eslint/no-explicit-any": "off"
+    "@typescript-eslint/no-explicit-any": "off",
+    "import/no-anonymous-default-export": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "promise/catch-or-return": "error"
   }
 }

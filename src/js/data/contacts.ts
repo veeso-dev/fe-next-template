@@ -8,7 +8,7 @@ interface Contacts {
 const CONTACTS: Contacts = {
   address: '',
   authorVat: 'IT03104140300',
-  siteUrl: '',
+  siteUrl: 'https://example.com',
   vat: '',
 };
 
