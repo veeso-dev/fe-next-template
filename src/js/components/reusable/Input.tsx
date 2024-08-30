@@ -177,29 +177,52 @@ interface TextAreaProps extends React.HTMLProps<HTMLTextAreaElement> {
   containerClassName?: string;
 }
 
-const Textarea = (props: TextAreaProps) => (
-  <div className={`${props.containerClassName} mb-6`}>
-    {props.label && (
-      <label
-        htmlFor={props.id}
-        className="block mb-2 text-sm font-medium text-text "
-      >
-        {props.label}
-      </label>
-    )}
-    <textarea
-      id="message"
-      rows={props.rows}
-      className={`${props.className} block p-2.5 w-full text-sm text-text bg-white rounded-lg border border-gray-300 focus:ring-band focus:border-brand focus-visible:outline-none`}
-      placeholder={props.placeholder}
-      required={props.required}
-      onChange={props.onChange}
-      onKeyUp={props.onKeyUp}
-      name={props.name}
-      value={props.value}
-    ></textarea>
-  </div>
-);
+const Textarea = (props: TextAreaProps) => {
+  const [hasFocus, setHasFocus] = React.useState(false);
+
+  const onFocus = (e: React.FocusEvent<HTMLTextAreaElement>) => {
+    setHasFocus(true);
+    if (props.onFocus) props.onFocus(e);
+  };
+
+  const onBlur = (e: React.FocusEvent<HTMLTextAreaElement>) => {
+    setHasFocus(false);
+    if (props.onBlur) props.onBlur(e);
+  };
+
+  return (
+    <div className={`${props.containerClassName} mb-6`}>
+      {props.label && (
+        <label
+          htmlFor={props.id}
+          className="block mb-2 text-sm font-medium text-text "
+        >
+          {props.label}
+          {props.required && ' *'}
+        </label>
+      )}
+      <textarea
+        id="message"
+        rows={props.rows}
+        className={`${props.className} ${inputValidationStyle(
+          undefined,
+          props.value,
+          hasFocus,
+          props.required,
+          props.disabled,
+        )} block p-2.5 w-full text-sm text-text bg-white rounded-lg border border-gray-300 focus:ring-band focus:border-brand focus-visible:outline-none`}
+        placeholder={props.placeholder}
+        required={props.required}
+        onChange={props.onChange}
+        onKeyUp={props.onKeyUp}
+        name={props.name}
+        value={props.value}
+        onFocus={onFocus}
+        onBlur={onBlur}
+      ></textarea>
+    </div>
+  );
+};
 
 export default {
   IconInput,

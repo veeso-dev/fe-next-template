@@ -54,7 +54,7 @@ const CookieBar = () => {
               sia cookie di parti terze per inviare messaggi promozionali sulla
               base dei comportamenti degli utenti. Può conoscere i dettagli
               consultando la nostra{' '}
-              <Link.Paragraph href={Route.url(Route.COOKIE_POLICY)}>
+              <Link.Paragraph href={Route.COOKIE_POLICY}>
                 Cookie Policy.
               </Link.Paragraph>
             </Paragraph.Leading>

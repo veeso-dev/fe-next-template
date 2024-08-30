@@ -5,6 +5,7 @@ import Container from '@/src/js/components/reusable/Container';
 
 import Paragraph from '@/src/js/components/reusable/Paragraph';
 import Link from '@/src/js/components/reusable/Link';
+import { Route } from '@/src/js/utils/routes';
 
 const NotFound = () => {
   return (
@@ -16,9 +17,9 @@ const NotFound = () => {
             <Paragraph.Center>
               Non siamo stati in grado di trovare la pagina che stavi cercando.
             </Paragraph.Center>
-            <Link.Default className="!text-brand text-xl" href="/">
+            <Link.Next className="!text-brand text-xl" href={Route.HOME}>
               Torna alla home
-            </Link.Default>
+            </Link.Next>
           </Container.FlexCols>
         </Page.Body>
       </Page.BlankPage>

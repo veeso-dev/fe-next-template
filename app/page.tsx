@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 
 import Page from '@/src/js/components/reusable/Page';
 import { canonicalUrl } from '@/src/js/utils/seo';
+import { Route } from '@/src/js/utils/routes';
 
 const TITLE = 'Next template';
 const DESCRIPTION = '';
@@ -10,9 +11,9 @@ const DESCRIPTION = '';
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
-  metadataBase: new URL(canonicalUrl('')),
+  metadataBase: new URL(canonicalUrl(Route.HOME)),
   alternates: {
-    canonical: '/',
+    canonical: new URL(canonicalUrl(Route.HOME)),
   },
   openGraph: {
     title: TITLE,

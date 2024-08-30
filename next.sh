@@ -3,6 +3,7 @@
 cd "$(dirname "$0")" || exit 1
 
 APP_NAME="next"
+MONIT_SERVICE="next"
 PIDFILE="/var/run/$APP_NAME.pid"
 
 info() {
@@ -51,7 +52,7 @@ stop() {
 
 reload() {
   git pull origin main
-  sudo monit restart expocats-web
+  sudo monit restart $MONIT_SERVICE
 }
 
 NODE=$(which node)

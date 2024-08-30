@@ -28,7 +28,7 @@ const Center = (props: React.HTMLProps<HTMLParagraphElement>) => (
     itemProp={props.itemProp}
     itemScope={props.itemScope}
     itemType={props.itemType}
-    className={`${props.className} w-full mb-3 text-lg md:text-xl text-center text-text`}
+    className={`${props.className} w-full mb-3 text-lg text-center text-text`}
   >
     {props.children}
   </p>

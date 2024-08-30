@@ -5,7 +5,7 @@ type ButtonType = 'submit' | 'reset' | 'button' | undefined;
 const Primary = (props: React.HTMLProps<HTMLButtonElement>) => (
   <button
     type={(props.type as ButtonType) ?? 'button'}
-    className={`${props.className} text-white bg-brand hover:bg-brandAlt focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-xl text-sm px-5 py-2.5 mr-2 mb-2 disabled:bg-zinc-100 disabled:text-zinc-500  disabled:cursor-not-allowed`}
+    className={`${props.className} text-brandLight bg-brand bg-brand/90 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-xl text-sm px-5 py-2.5 mr-2 mb-2 disabled:bg-zinc-100 disabled:text-zinc-500  disabled:cursor-not-allowed`}
     disabled={props.disabled}
     onClick={props.onClick}
   >
@@ -27,7 +27,7 @@ const Alternative = (props: React.HTMLProps<HTMLButtonElement>) => (
 const Tertiary = (props: React.HTMLProps<HTMLButtonElement>) => (
   <button
     type={(props.type as ButtonType) ?? 'button'}
-    className={`${props.className} text-white bg-transparent border border-gray-300 focus:outline-none focus:ring-4 focus:ring-gray-200 font-medium rounded-xl text-sm px-5 py-2.5 mr-2 mb-2 disabled:bg-zinc-100 disabled:text-zinc-500  disabled:cursor-not-allowed`}
+    className={`${props.className} text-brandLight bg-transparent border border-gray-300 focus:outline-none focus:ring-4 focus:ring-gray-200 font-medium rounded-xl text-sm px-5 py-2.5 mr-2 mb-2 disabled:bg-zinc-100 disabled:text-zinc-500  disabled:cursor-not-allowed`}
     disabled={props.disabled}
     onClick={props.onClick}
   >

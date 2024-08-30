@@ -14,6 +14,18 @@ export namespace Route {
 
     return `/${route}`;
   }
+
+  export function isRoute(keyOrValue: any): boolean {
+    return isEnumKey(keyOrValue) || isEnumValue(keyOrValue);
+  }
+}
+
+function isEnumKey(key: any): boolean {
+  return Object.keys(Route).includes(key);
+}
+
+function isEnumValue(value: any): boolean {
+  return Object.values(Route).includes(value);
 }
 
 export interface MenuEntries {

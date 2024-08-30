@@ -1,9 +1,20 @@
 import NextLink from 'next/link';
 import * as React from 'react';
+import { Route } from '../../utils/routes';
 
-const Default = (props: React.HTMLProps<HTMLAnchorElement>) => (
+interface LinkProps extends React.HTMLProps<HTMLAnchorElement> {
+  href?: string | Route;
+}
+
+const resolve = (href?: string | Route): string | undefined => {
+  if (!href) return undefined;
+
+  return Route.isRoute(href) ? Route.url(href as Route) : href;
+};
+
+const Default = (props: LinkProps) => (
   <a
-    href={props.href}
+    href={resolve(props.href)}
     className={`${props.className} text-inherit cursor-pointer hover:underline`}
     itemScope={props.itemScope}
     itemType={props.itemType}
@@ -16,9 +27,9 @@ const Default = (props: React.HTMLProps<HTMLAnchorElement>) => (
   </a>
 );
 
-const Next = (props: React.HTMLProps<HTMLAnchorElement>) => (
+const Next = (props: LinkProps) => (
   <NextLink
-    href={props.href ?? ''}
+    href={resolve(props.href) ?? ''}
     className={`${props.className} w-fit font-medium text-inherit cursor-pointer hover:underline`}
     itemScope={props.itemScope}
     itemType={props.itemType}
@@ -30,9 +41,9 @@ const Next = (props: React.HTMLProps<HTMLAnchorElement>) => (
   </NextLink>
 );
 
-const Button = (props: React.HTMLProps<HTMLAnchorElement>) => (
+const Button = (props: LinkProps) => (
   <a
-    href={props.href}
+    href={resolve(props.href)}
     className={`${props.className} px-5 py-2.5 mr-2 mb-2 font-medium text-brandLight bg-brand hover:bg-brandAlt focus:outline-none focus:ring-4 focus:ring-gray-300 rounded-xl`}
     itemScope={props.itemScope}
     itemType={props.itemType}
@@ -44,9 +55,9 @@ const Button = (props: React.HTMLProps<HTMLAnchorElement>) => (
   </a>
 );
 
-const ButtonAlt = (props: React.HTMLProps<HTMLAnchorElement>) => (
+const ButtonAlt = (props: LinkProps) => (
   <a
-    href={props.href}
+    href={resolve(props.href)}
     className={`${props.className} border border-gray-200 hover:bg-amber-50 font-medium text-brand bg-brandLight focus:outline-none focus:ring-4 focus:ring-gray-300 rounded-xl`}
     itemScope={props.itemScope}
     itemType={props.itemType}
@@ -58,9 +69,9 @@ const ButtonAlt = (props: React.HTMLProps<HTMLAnchorElement>) => (
   </a>
 );
 
-const ButtonAlt2 = (props: React.HTMLProps<HTMLAnchorElement>) => (
+const ButtonAlt2 = (props: LinkProps) => (
   <a
-    href={props.href}
+    href={resolve(props.href)}
     className={`${props.className} border border-gray-200 hover:bg-gray-50 font-medium text-brand bg-white focus:outline-none focus:ring-4 focus:ring-gray-300 rounded-xl`}
     itemScope={props.itemScope}
     itemType={props.itemType}
@@ -72,9 +83,9 @@ const ButtonAlt2 = (props: React.HTMLProps<HTMLAnchorElement>) => (
   </a>
 );
 
-const Paragraph = (props: React.HTMLProps<HTMLAnchorElement>) => (
+const Paragraph = (props: LinkProps) => (
   <a
-    href={props.href}
+    href={resolve(props.href)}
     className={`${props.className} !text-brand font-medium text-inherit cursor-pointer underline hover:no-underline`}
     itemScope={props.itemScope}
     itemType={props.itemType}
@@ -86,9 +97,9 @@ const Paragraph = (props: React.HTMLProps<HTMLAnchorElement>) => (
   </a>
 );
 
-const IconLink = (props: React.HTMLProps<HTMLAnchorElement>) => (
+const IconLink = (props: LinkProps) => (
   <a
-    href={props.href}
+    href={resolve(props.href)}
     className={`${props.className} inline-flex items-center font-medium text-inherit hover:underline`}
     itemScope={props.itemScope}
     itemType={props.itemType}

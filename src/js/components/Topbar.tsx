@@ -5,13 +5,7 @@ import * as React from 'react';
 import Desktop from './Topbar/Desktop';
 import Mobile from './Topbar/Mobile';
 import { Route } from '../utils/routes';
-
-interface MenuEntry {
-  name: string;
-  route?: Route;
-  externalLink?: string;
-  url?: string;
-}
+import { MenuEntry } from './Topbar/MenuEntries';
 
 export const MENU_ENTRIES: MenuEntry[] = [
   {
@@ -26,8 +20,8 @@ export const MENU_ENTRIES: MenuEntry[] = [
 
 const Topbar = () => (
   <header>
-    <Desktop />
-    <Mobile />
+    <Desktop entries={MENU_ENTRIES} />
+    <Mobile entries={MENU_ENTRIES} />
   </header>
 );
 
