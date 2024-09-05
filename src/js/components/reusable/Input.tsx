@@ -32,14 +32,17 @@ const inputValidationStyle = (
   if (
     validate === undefined ||
     input === undefined ||
-    input.toString().length === 0 ||
-    hasFocus
+    input.toString().length === 0
   ) {
+    if (hasFocus) {
+      return 'ring-2';
+    }
+
     return '';
   }
 
   if (!validate(input)) {
-    return 'bg-red-50 border-red-500 text-red-900 placeholder-red-700 focus:border-red-500';
+    return 'ring-2 ring-red-500 bg-red-50 border-red-500 text-red-900 placeholder-red-700 focus:border-red-500';
   }
 
   return '';
@@ -210,7 +213,7 @@ const Textarea = (props: TextAreaProps) => {
           hasFocus,
           props.required,
           props.disabled,
-        )} block p-2.5 w-full text-sm text-text bg-white rounded-lg border border-gray-300 focus:ring-band focus:border-brand focus-visible:outline-none`}
+        )} block p-2.5 w-full text-sm text-text bg-white rounded-lg border border-gray-300 focus:ring-brand focus:border-brand focus-visible:outline-none`}
         placeholder={props.placeholder}
         required={props.required}
         onChange={props.onChange}
