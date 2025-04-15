@@ -107,7 +107,7 @@ const Input = (props: InputProps) => {
 };
 
 interface IconInputProps extends InputProps {
-  icon: JSX.Element;
+  icon: React.ReactNode;
 }
 
 const IconInput = (props: IconInputProps) => {

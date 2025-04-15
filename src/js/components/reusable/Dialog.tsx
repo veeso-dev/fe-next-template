@@ -5,7 +5,7 @@ import Heading from './Heading';
 import Container from './Container';
 
 interface Props {
-  children?: JSX.Element | JSX.Element[] | string;
+  children?: React.ReactNode | React.ReactNode[] | string;
   closeText: string;
   onClose: () => void;
   title: string;

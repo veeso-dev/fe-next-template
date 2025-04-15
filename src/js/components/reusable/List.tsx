@@ -20,7 +20,7 @@ const Item = (props: React.HTMLProps<HTMLDivElement>) => (
 );
 
 interface ItemIconProps extends React.HTMLProps<HTMLDivElement> {
-  icon: JSX.Element;
+  icon: React.ReactNode;
 }
 
 const ItemIcon = (props: ItemIconProps) => (

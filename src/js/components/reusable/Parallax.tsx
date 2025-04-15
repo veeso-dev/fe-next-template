@@ -4,7 +4,7 @@ interface Props extends React.HTMLProps<HTMLDivElement> {
   height: string;
   width: string;
   image: string;
-  children?: JSX.Element | JSX.Element[] | string;
+  children?: React.ReactNode | React.ReactNode[] | string;
 }
 
 const Parallax = (props: Props) => {

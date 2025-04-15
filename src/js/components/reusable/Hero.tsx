@@ -11,7 +11,7 @@ const Hero = (props: React.HTMLProps<HTMLDivElement>) => (
 );
 
 interface TitleProps extends React.HTMLProps<HTMLHeadingElement> {
-  children?: string | JSX.Element | JSX.Element[];
+  children?: string | React.ReactNode | React.ReactNode[];
   scrollTo?: string;
   scrollAnimationTimeout?: number;
 }
